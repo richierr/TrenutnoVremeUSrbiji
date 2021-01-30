@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">TrenutnoVremeUSrbiji</string>
+    <string name="rss_url">http://www.hidmet.gov.rs/latin/osmotreni/index.rss</string>
+</resources>
