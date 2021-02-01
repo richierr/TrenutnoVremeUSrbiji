@@ -1,6 +1,9 @@
 package com.radomirribic.trenutnovremeusrbiji.utils;
 
+import android.content.Context;
 import android.util.Log;
+
+import com.radomirribic.trenutnovremeusrbiji.MainActivity;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -12,9 +15,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ParseWeather {
+    private static final String TAG ="Parse weather" ;
     private ArrayList<FeedEntry> weatherEntries;
+    private Context mContext;
 
-    public ParseWeather() {
+
+    public ParseWeather(Context context) {
+        mContext=context;
         this.weatherEntries = new ArrayList<>();
     }
 
@@ -28,6 +35,7 @@ public class ParseWeather {
 
     //Parse stores the entries into the arraylist
     public void parse(String xmlData) {
+        String time=null;
         boolean status = true;
         FeedEntry currenRecord = null;
         boolean inEntry = false;
@@ -37,12 +45,14 @@ public class ParseWeather {
             factory.setNamespaceAware(true);
             XmlPullParser xpp = factory.newPullParser();
             xpp.setInput(new StringReader(xmlData));
+            boolean timestampSet=false;
             int eventType = xpp.getEventType();
             while ((eventType != XmlPullParser.END_DOCUMENT)) {
                 String tagName = xpp.getName();
 
                 switch (eventType) {
                     case XmlPullParser.START_TAG:
+
                         if ("item".equalsIgnoreCase(tagName)) {
                             inEntry = true;
                             currenRecord = new FeedEntry();
@@ -50,6 +60,15 @@ public class ParseWeather {
                         break;
                     case XmlPullParser.TEXT:
                         textValue = xpp.getText();
+                        String timestampText=textValue.toLowerCase();
+                        if(timestampSet==false && timestampText.contains("rhmz srbije")){
+                            time=textValue;
+                            timestampSet=true;
+                            time=time.replaceAll("RHMZ Srbije - Podaci sa meteoroloških stanica ","");
+                            MainActivity mainActivity=(MainActivity)mContext;
+                            mainActivity.setTitle("Podaci ažurirani: "+time);
+
+                        }
                         break;
                     case XmlPullParser.END_TAG:
                         if(inEntry){
@@ -77,6 +96,10 @@ public class ParseWeather {
 
 
     }
+
+//    private String parseTime(){
+//
+//    }
 
     private void setFeedEntryFields(String data, FeedEntry currenRecord) {
 

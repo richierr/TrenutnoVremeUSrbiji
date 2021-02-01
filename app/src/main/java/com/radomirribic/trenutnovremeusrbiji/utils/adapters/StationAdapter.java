@@ -1,6 +1,8 @@
 package com.radomirribic.trenutnovremeusrbiji.utils.adapters;
 
 import android.content.Context;
+import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +19,7 @@ import com.radomirribic.trenutnovremeusrbiji.utils.FeedEntry;
 import java.util.List;
 
 public class StationAdapter extends RecyclerView.Adapter {
+    private StringBuilder myStringBuilder=new StringBuilder();
 
     private List<FeedEntry> feedEntries;
     private int feedId;
@@ -66,6 +69,7 @@ public class StationAdapter extends RecyclerView.Adapter {
             windSpeed=itemView.findViewById(R.id.txtWindSpeed);
             humidity=itemView.findViewById(R.id.txtHumidity);
             weatherDescription=itemView.findViewById(R.id.txtWeatherDescription);
+            weatherIcon=itemView.findViewById(R.id.imgWeatherIcon);
 
         }
 
@@ -79,23 +83,30 @@ public class StationAdapter extends RecyclerView.Adapter {
             humidity.setText(feedEntries.get(position).getHumidity());
             weatherDescription.setText(feedEntries.get(position).getWeatherDescription());
             //Glide.with(mContext).load(getIconResource(feedEntries.get(position).getIcon())).into(weatherIcon);
-            //Glide.with(mContext).load(feedEntries.get(position).getIcon()).into(weatherIcon);
-            Glide.with(mContext).load(feedEntries.get(position).getIcon()).into(weatherIcon);
+            Glide.with(mContext).load(iconResourceUri(position)).into(weatherIcon);
+//            Glide.with(mContext).load(feedEntries.get(position).getIcon()).into(weatherIcon);
+//            Glide.with(mContext).load(feedEntries.get(position).getIcon()).into(weatherIcon);
 
         }
 
-//        private byte[] getIconResource(int icon) {
-//
-//        }
+        private Uri iconResourceUri(int id){
 
-        private Integer getPicId(int id){
-            StringBuilder st=new StringBuilder();
-            st.append("a");
-            st.append(id);
-            st.append(".png");
-            return Integer.valueOf(st.toString());
+            myStringBuilder.append("android.resource://com.radomirribic.trenutnovremeusrbiji/drawable/");
+            myStringBuilder.append("a");
 
+            int iconId=feedEntries.get(id).getIcon();
+            myStringBuilder.append(iconId);
+            //myStringBuilder.append(".png");
+
+
+            Uri uri = Uri.parse(myStringBuilder.toString());
+            myStringBuilder.setLength(0);
+            Log.d("Tag", "iconResourceUri: "+uri.toString());
+            return uri;
         }
+
+
+
 
 
         @Override

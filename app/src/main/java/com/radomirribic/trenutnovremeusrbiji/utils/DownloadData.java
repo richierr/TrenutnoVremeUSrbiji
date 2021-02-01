@@ -54,15 +54,18 @@ public class DownloadData extends AsyncTask<Void, Void, String> {
 
         }else{
 
-            ParseWeather parseWeather=new ParseWeather();
+            ParseWeather parseWeather=new ParseWeather(context);
             parseWeather.parse(s);
             Log.d(TAG, "onPostExecute: HERE I AM");
 //            TextView testTextView =
 //                    (TextView) ((MainActivity)context).findViewById(R.id.txtViewTest);
 //            testTextView.setText(s);
-            for(FeedEntry entry:parseWeather.getWeatherEntries()){
-                Log.d(TAG, "onPostExecute: name "+entry.getStationName()+" pic num "+entry.getIcon());
-            }
+
+
+            //vazan log
+//            for(FeedEntry entry:parseWeather.getWeatherEntries()){
+//                Log.d(TAG, "onPostExecute: name "+entry.getStationName()+" pic num "+entry.getIcon());
+//            }
 
             setRecyclerView(((MainActivity) context).findViewById(R.id.recycler_view),parseWeather.getWeatherEntries());
 
