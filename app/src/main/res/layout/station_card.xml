@@ -40,12 +40,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
 
+            android:layout_marginTop="8dp"
             android:text="Pressure"
             android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtTemperature" />
+            app:layout_constraintTop_toBottomOf="@+id/txtHumidity" />
 
         <TextView
             android:id="@+id/txtWindSpeed"
@@ -63,9 +64,9 @@
             android:id="@+id/txtWindDirection"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-
             android:text="WindDirection"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -81,7 +82,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtWindDirection" />
+            app:layout_constraintTop_toBottomOf="@+id/txtTemperature" />
 
         <TextView
             android:id="@+id/txtWeatherDescription"
@@ -94,7 +95,8 @@
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtHumidity" />
+            app:layout_constraintTop_toBottomOf="@+id/txtWindDirection"
+            app:layout_constraintVertical_bias="0.0" />
 
         <ImageView
             android:id="@+id/imgWeatherIcon"

@@ -3,6 +3,8 @@ package com.radomirribic.trenutnovremeusrbiji.utils;
 import android.content.Context;
 import android.util.Log;
 
+import androidx.appcompat.app.ActionBar;
+
 import com.radomirribic.trenutnovremeusrbiji.MainActivity;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -13,6 +15,7 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class ParseWeather {
     private static final String TAG ="Parse weather" ;
@@ -66,7 +69,10 @@ public class ParseWeather {
                             timestampSet=true;
                             time=time.replaceAll("RHMZ Srbije - Podaci sa meteoroloških stanica ","");
                             MainActivity mainActivity=(MainActivity)mContext;
-                            mainActivity.setTitle("Podaci ažurirani: "+time);
+                            ActionBar actionBar=((MainActivity) mContext).getSupportActionBar();
+
+                            actionBar.setSubtitle("Podaci ažurirani: "+time);
+
 
                         }
                         break;
@@ -93,6 +99,12 @@ public class ParseWeather {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
+        Collections.sort(weatherEntries, (FeedEntry s1, FeedEntry s2) ->{
+            return s1.getStationName().compareToIgnoreCase(s2.getStationName());
+        });
+
 
 
     }
