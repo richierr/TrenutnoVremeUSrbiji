@@ -85,7 +85,7 @@ public class DownloadData extends AsyncTask<Void, Void, String> {
         StationAdapter adapter = new StationAdapter(feedEntries);
 
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager((MainActivity)context, 1);
-        recyclerView.addItemDecoration(new DividerItemDecoration((MainActivity)context, LinearLayoutManager.VERTICAL));
+       // recyclerView.addItemDecoration(new DividerItemDecoration((MainActivity)context, LinearLayoutManager.VERTICAL));
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);

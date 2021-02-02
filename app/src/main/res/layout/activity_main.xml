@@ -11,11 +11,19 @@
         android:id="@+id/my_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
+        android:layout_margin="12dp"
+
+
         android:background="#A3D5D5D5"
+
+
         android:minHeight="?attr/actionBarSize"
+        android:requiresFadingEdge="horizontal|vertical"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintTop_toTopOf="parent"
-        app:titleTextColor="#4C4A4A" />
+        app:titleTextColor="#4C4A4A"
+        tools:layout_editor_absoluteX="12dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"

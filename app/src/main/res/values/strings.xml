@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TrenutnoVremeUSrbiji</string>
+    <string name="app_name">Vreme u Srbiji</string>
     <string name="rss_url">http://www.hidmet.gov.rs/latin/osmotreni/index.rss</string>
     <string name="refresh_btn">Refresh</string>
 </resources>
