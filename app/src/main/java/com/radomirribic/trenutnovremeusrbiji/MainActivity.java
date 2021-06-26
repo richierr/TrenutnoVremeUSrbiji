@@ -1,51 +1,37 @@
 package com.radomirribic.trenutnovremeusrbiji;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.radomirribic.trenutnovremeusrbiji.utils.AsyncTaskListener;
-import com.radomirribic.trenutnovremeusrbiji.utils.DownloadData;
-
-public class MainActivity extends AppCompatActivity implements AsyncTaskListener {
-
-    private String timeStamp;
+import com.radomirribic.trenutnovremeusrbiji.fragments.AutomaticStationsFragment;
 
 
-    public void setTimeStamp(String timeStamp) {
-        this.timeStamp = timeStamp;
-    }
+public class MainActivity extends AppCompatActivity  {
+    private Handler mHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        downloadRss();
+        //downloadRss();
         setContentView(R.layout.activity_main);
         setTitle("Vreme u Srbiji");
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-
         setSupportActionBar(myToolbar);
-
-
-
-
-
-
+        showMainListFragment();
     }
 
-    private void downloadRss(){
-        DownloadData downloadData=new DownloadData(this);
-        downloadData.execute();
-
+    private void showMainListFragment() {
+        FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.my_frame_layout, AutomaticStationsFragment.newInstance());
+        ft.commit();
     }
 
     @Override
@@ -57,16 +43,11 @@ public class MainActivity extends AppCompatActivity implements AsyncTaskListener
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId()==R.id.itemRefresh){
-            downloadRss();
-            Context context;
-            CharSequence text;
+            showMainListFragment();
             Toast.makeText(this, "Refreshed data", Toast.LENGTH_LONG).show();
         }
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void giveView(View view) {
 
-    }
 }

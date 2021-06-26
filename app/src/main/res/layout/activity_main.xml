@@ -6,38 +6,45 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
     <androidx.appcompat.widget.Toolbar
-
-
         android:id="@+id/my_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:layout_margin="12dp"
-
-
+        android:layout_margin="5dp"
         android:background="@drawable/background_border"
-
-
-
+        android:elevation="20dp"
         android:minHeight="?attr/actionBarSize"
         android:requiresFadingEdge="horizontal|vertical"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintTop_toTopOf="parent"
         app:titleTextColor="#4C4A4A"
         tools:layout_editor_absoluteX="12dp"
-
+        app:layout_constraintBottom_toTopOf="@id/top_guideline"
         />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/my_toolbar">
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/top_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintGuide_percent="0.1"
+                android:orientation="horizontal"/>
 
-    </androidx.recyclerview.widget.RecyclerView>
+    <FrameLayout
+        android:id="@+id/my_frame_layout"
+        app:layout_constraintTop_toBottomOf="@id/top_guideline"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="5dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </FrameLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
