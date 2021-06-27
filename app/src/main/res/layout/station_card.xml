@@ -8,7 +8,7 @@
     android:layout_marginTop="8dp"
     android:layout_marginEnd="8dp"
     app:cardCornerRadius="20dp"
-    app:cardElevation="30dp"
+    app:cardElevation="20dp"
     app:strokeColor="#68000000"
     app:strokeWidth="1dp">
 
@@ -59,7 +59,6 @@
             android:text="Humidity"
             android:visibility="gone"
             android:textSize="20sp"
-            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtTemperature" />
 
@@ -91,7 +90,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
+
                 android:gravity="center_horizontal"
                 android:text="vedro"
                 android:textSize="18sp" />

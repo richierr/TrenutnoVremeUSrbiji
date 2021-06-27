@@ -1,4 +1,4 @@
-package com.radomirribic.trenutnovremeusrbiji;
+package com.radomirribic.trenutnovremeusrbiji.utils;
 
 import com.radomirribic.trenutnovremeusrbiji.fragments.AutomaticStationsFragment;
 

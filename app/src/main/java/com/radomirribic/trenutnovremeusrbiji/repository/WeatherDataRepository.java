@@ -1,10 +1,12 @@
-package com.radomirribic.trenutnovremeusrbiji;
+package com.radomirribic.trenutnovremeusrbiji.repository;
 
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.util.Log;
 
+import com.radomirribic.trenutnovremeusrbiji.utils.RSSWeatherDataParser;
 import com.radomirribic.trenutnovremeusrbiji.utils.Constants;
+import com.radomirribic.trenutnovremeusrbiji.utils.OnResultCallback;
 
 import java.io.BufferedReader;
 import java.io.IOException;

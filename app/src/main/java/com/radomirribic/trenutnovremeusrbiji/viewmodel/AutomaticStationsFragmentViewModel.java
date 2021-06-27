@@ -1,8 +1,10 @@
-package com.radomirribic.trenutnovremeusrbiji;
+package com.radomirribic.trenutnovremeusrbiji.viewmodel;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.radomirribic.trenutnovremeusrbiji.utils.OnResultCallback;
+import com.radomirribic.trenutnovremeusrbiji.repository.WeatherDataRepository;
 import com.radomirribic.trenutnovremeusrbiji.fragments.AutomaticStationsFragment;
 
 import java.util.List;

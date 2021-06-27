@@ -7,7 +7,7 @@
 
         <variable
             name="viewmodel"
-            type="com.radomirribic.trenutnovremeusrbiji.AutomaticStationsFragmentViewModel" />
+            type="com.radomirribic.trenutnovremeusrbiji.viewmodel.AutomaticStationsFragmentViewModel" />
 
         <variable
             name="fragment"

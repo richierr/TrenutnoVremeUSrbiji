@@ -1,4 +1,4 @@
-package com.radomirribic.trenutnovremeusrbiji;
+package com.radomirribic.trenutnovremeusrbiji.utils;
 
 public interface OnResultCallback {
     void onResult(Object object);

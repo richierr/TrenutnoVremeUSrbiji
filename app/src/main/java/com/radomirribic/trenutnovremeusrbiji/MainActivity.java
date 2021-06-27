@@ -23,8 +23,8 @@ public class MainActivity extends AppCompatActivity  {
         //downloadRss();
         setContentView(R.layout.activity_main);
         setTitle("Vreme u Srbiji");
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        setSupportActionBar(myToolbar);
+//        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+//        setSupportActionBar(myToolbar);
         showMainListFragment();
     }
 

@@ -15,9 +15,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.radomirribic.trenutnovremeusrbiji.AutomaticStationsFragmentViewModel;
+import com.radomirribic.trenutnovremeusrbiji.viewmodel.AutomaticStationsFragmentViewModel;
 import com.radomirribic.trenutnovremeusrbiji.R;
-import com.radomirribic.trenutnovremeusrbiji.StationAdapter;
+import com.radomirribic.trenutnovremeusrbiji.adapters.StationAdapter;
 import com.radomirribic.trenutnovremeusrbiji.databinding.AutomaticStationsFragmentListBinding;
 
 
